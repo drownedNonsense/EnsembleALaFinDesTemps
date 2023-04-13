@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Jauges</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3fe44f44-55a7-4168-a342-edb4cba7af6d" class="page serif"><header><h1 class="page-title">Jauges</h1></header><div class="page-body"><div id="9ddd4e07-cc16-4704-8045-54e1a20a9340" class="column-list"><div id="a6cd2fdc-c25c-4438-b01b-8a6c00e51083" style="width:50%" class="column"><h1 id="e5bb78aa-3803-41d0-837b-8b532aeca188" class="">Potentiel physique</h1><hr id="36badb2c-f02f-4c7f-9ebd-552a9a56c72e"/><p id="d56c53f6-458c-4acc-bf5a-a7eb1c3929a9" class="">La pioche du <strong>personnage</strong> représente son <strong>potentiel physique</strong>. Lorsqu’il n’y a plus de carte, le <strong>personnage</strong> est hors d’état. La <strong>compétence</strong> <em><strong>Premiers soins</strong></em> permet de reprendre 1 carte au maximum. Chaque jour, le <strong>personnage</strong> regagne 1 carte, pour une limite de 4.</p></div><div id="fa80cbf1-2c7e-486f-b6f3-0f0b765fca64" style="width:50%" class="column"><h1 id="caa3a1db-9ca5-4981-8a67-6c62ebcd846f" class="">Lumière</h1><hr id="f143f27d-78d8-4aa4-b6e3-ea48cb11671a"/><p id="a7270f96-6194-4104-a678-99ba961261ee" class="">Le niveau de <strong><em>Lumière</em></strong><strong> </strong>limite le nombre de carte connues. Il peut être augmenté en utilisant certains équipements ou en se trouvant dans certains environnements. Lorsque la <em><strong>Lumière </strong></em>baisse, <em>le joueur · la joueuse</em> doit défosser une de ses cartes connues et en repiocher une sans la regarder.</p></div></div><h1 id="a72d3a13-6dc5-406d-92fd-08e0a467cd41" class="">Stabilité</h1><hr id="6d626662-cea5-4834-8282-d985ba203989"/><p id="e2cb30c3-2e43-4601-b016-078dd8a68e1a" class="">Lorsqu&#x27;un <strong>personnage </strong>vie une situation difficile <mark class="highlight-gray">(être témoins d’une mort violente, de quelqu&#x27;un, être pris dans un bombardement, perdre un être cher...)</mark>, il doit lancer un dé par point de <em><strong>Stabilité</strong></em>, pour un maximum de 4 point</p><p id="553c763a-62a2-4e43-bec0-3dc9293e3cfb" class="">Chaque 6 obtenu représente la force de la réaction face à la dite situation. Le <strong>personnage</strong> peut choisir entre perdre un niveau de <em><strong>Stabilité</strong></em> par points de force et <strong>faiblir</strong> pendant 2 tours ou prendre sur lui en perdant un niveau de <em><strong>Stabilité</strong></em> supplémentaire.</p><div id="1a115df3-5f42-455e-8235-dc81b906009c" class="column-list"><div id="1aef79a0-356b-4a02-94ae-a1210c7ebdf3" style="width:50%" class="column"><p id="05e91acc-3866-44ae-bb3e-3bbf0ebc1419" class="">Si le niveau de <em><strong>Stabilité</strong></em> d’un <strong>personnage</strong> liée par <strong>soutien</strong> sur celui qui fait un <strong>jet de stabilité</strong> est supérieur à 4 moins le niveau de<strong> </strong><em><strong>Soutien</strong></em>, le <strong>personnage</strong> de soutien perd la moitié du <strong>personnage </strong>soutenu tandis que ce dernier ne perd rien.</p></div><div id="0e7bc7fe-2e8f-4464-8656-fe1ebf55cb83" style="width:50%" class="column"><blockquote id="85b3bb6c-6924-4ea2-9d37-3e176f6b908e" class=""><em>Ika vie une situation difficile et a un niveau de soutien de 1 de la part de Nadezhka. Il fait son jet de stabilité et obtient une force de 2. Nadezhka étant présente et ayant 4 de </em>Stabilité, ce qui est supérieur à 4 - 1<em>, elle perd 1 et Ika ne perd rien.</em></blockquote></div></div><div id="984fd255-a91c-4acc-9b4f-bc977d61ab05" class="column-list"><div id="5447501f-52ab-4fc1-8b86-b452c22e3f05" style="width:43.75%" class="column"><p id="d60c5fba-2afa-48b1-b0c3-805ae8648b3d" class="">S’il le <strong>personnage </strong>qui <strong>soutiens </strong>n’a plus de niveau de <em><strong>Stabilité</strong></em> après cette action, il doit se briser. Si tous les dés obtiennent un 6, le <strong>personnage</strong> se <strong>brise</strong>. S’il est seul, il disparaît de l’aventure et <em>le joueur · la joueuse</em> devra créer un nouveau <strong>personnage</strong>, autrement, il ne peut pas participer jusqu’à la scène suivante.</p></div><div id="03f627bc-032f-45a7-990f-f529d78e145a" style="width:56.25%" class="column"><p id="efe81f4f-4efd-4fd8-95bf-89a84723dc63" class="">Si le niveau de <em><strong>Stabilité</strong></em> d’un <strong>personnage</strong> liée par <strong>attache</strong> par celui qui devrait se <strong>briser</strong> est supérieur à 4 moins le niveau d’<em><strong>Attache</strong></em>, le <strong>personnage</strong> ne peut pas se <strong>briser</strong> est reste à 1 niveau de <em><strong>Stabilité</strong></em>.</p><blockquote id="d56d8c58-31c8-43df-96e5-a16d948302c7" class=""><em>Ika est sensé se briser suite à un jet de stabilité. Il a un niveau d’attache envers Nadezhka. 
+Cette dernière étant présente et ayant 4 de </em>Stabilité<em>, ce qui est supérieur à 4 - 1, Ika ne se brise pas mais a sa </em>Stabilité<em> fixée à 1.</em></blockquote></div></div><h1 id="8f31987b-7cf0-4e51-a58d-737770ba956a" class="">Ravitaillement</h1><hr id="5337ff8f-2e6f-4943-ac4b-ebfa1522f726"/><div id="31afabdb-f28a-42d1-b6c4-f68e9b5ad4bd" class="column-list"><div id="f8b2c303-d3eb-4844-b241-627e896f26f7" style="width:50%" class="column"><p id="3d34d069-ddb9-40e9-9312-1f2cb45739a4" class="">Le niveau de<strong> </strong><em><strong>Ravitaillement</strong></em> permet d’utiliser des équipements que la <strong>compagnie</strong> et ses <strong>personnages</strong> sont susceptibles d’avoir <mark class="highlight-gray">(voir </mark><em><mark class="highlight-gray">création d’un personnage</mark></em><mark class="highlight-gray"> et </mark><em><mark class="highlight-gray">création d’une compagnie</mark></em><mark class="highlight-gray">)</mark>. La limite peut être augmentée en utilisant certains équipements ou en marchandant. </p></div><div id="f2c04ec9-0023-4197-a71f-d160a45343cb" style="width:50%" class="column"><blockquote id="04c5f493-04b1-42cb-addf-5ab1f9c05648" class=""><em>Nadezhka a besoin de traitements. Ika fait partie de la même compagnie que Nadezhka et comme affaire personnelles disponibles des traitements et de l’alcool. 2 points de </em>Ravitaillement<em> de la compagnie peuvent être dépensés pour obtenir ces deux équipements.</em></blockquote></div></div><p id="08317df6-edb0-4513-9f3c-f76839ed0b7d" class="">Chaque jour, le niveau augmente automatiquement de 1 si la <strong>compagnie</strong> possède une <strong>ligne de ravitaillement</strong>, autrement, le niveau baisse de 1. Si le <em><strong>Ravitaillement</strong></em> est à 0, la <strong>compagnie</strong> n’a plus de quoi se nourir et c’est la fin au jour suivant.</p><h1 id="4790664d-82a3-4ae4-a043-c8e99d900ab1" class="">Deuil</h1><hr id="72ca4b4a-f9e9-4c15-885f-0e29e90b0a4b"/><div id="678f9bc1-7873-46ec-af81-2635d2224614" class="column-list"><div id="8404ffd6-80f8-4392-b25d-ddf54401b747" style="width:56.25%" class="column"><p id="54dac05e-bdf6-4f45-b01e-02105f12684f" class="">Lorsqu’un <strong>personnage</strong> de la <strong>compagnie</strong> meurt et que ni son corps ou son <strong>objet d’attache</strong> n’ont été récupérés, les membres de la <strong>compagnie</strong> augmentent leur niveau de <em><strong>Deuil</strong></em><em><em> </em></em>de 1. Si <em>le joueur · la joueuse</em> avait un <strong>lien d’attache</strong> avec ce <strong>personnage</strong>, son niveau de <em><strong>Deuil</strong></em> de 1 de nouveau, quel que soit la situation.</p></div><div id="957c0d9d-3c23-48cb-81e7-2c247f515f0c" style="width:43.74999999999999%" class="column"><p id="05aef90b-baeb-4664-bdfd-90ca7a54b46a" class="">Chaque jour, <em>le joueur · la joueuse</em> doit faire un <strong>jet de stabilité</strong> équivalent au niveau de <em><strong>Deuil</strong></em>.</p><p id="d15e4f15-2bc4-4926-8b53-f9ee130ebc37" class="">Lorsque le niveau atteint 4, c’est la fin du <strong>personnage</strong>.</p></div></div><h1 id="36238e68-a248-4959-bcd6-1dfa8c11ba9a" class="">Mal</h1><hr id="bf7b80bd-5a2f-4eb8-807d-e0dd0b4a0ff5"/><div id="97ac2e2c-226e-4b67-8449-2557023d633f" class="column-list"><div id="32be5bfd-4c22-4ef8-9510-74c6f62a49c6" style="width:50%" class="column"><p id="ed249309-7a9a-4eb2-9802-aa6231969897" class=""><em>Le joueur · la joueuse</em> peut consommer du tabac, de l’alcool ou autre <em>vices</em> pour regagner 1 point de <em><strong>Stabilité</strong></em>, puis jeter un dé. Si le valeur est de 6, <em>le joueur · la joueuse</em> doit augmenter son niveau de <em><strong>Mal</strong></em> de 1.</p></div><div id="d4836e87-8f71-4906-ab4c-063ac2ee8e15" style="width:50%" class="column"><p id="2c20fd0e-b0ae-4a26-8838-87cc14306ce3" class="">Chaque jour, si <em>le joueur · la joueuse</em> n’a pas fait de <em>vices</em>, <em>il · elle</em> doit faire un <strong>jet de stabilité</strong> équivalent au niveau de <em><strong>Mal</strong></em>.</p><p id="add0e5a2-12da-40d5-8f97-46883f17f71e" class="">Lorsque le niveau atteint 4, c’est la fin du <strong>personnage</strong>.</p></div></div><h1 id="e33a2c14-2826-4b42-a7cd-66ff1d1e7ebd" class="">Noirceur</h1><hr id="650ad134-f74d-4a7e-b847-8a200e0ed999"/><div id="8b3ace18-3953-41d3-9fc1-8fc8d3fbd1a2" class="column-list"><div id="ba25d136-bfe2-4f8c-a2b1-81398cf669c0" style="width:37.5%" class="column"><p id="df9511a9-28bd-4e95-a8f0-b924637ec901" class="">Lorsque <em>le joueur · la joueuse</em> est <em>exposé · exposée</em> aux toxines de la <em>Oöhrka</em>, <em>il · elle</em> jette autant de dés que l’intensité des toxines. S’il y a un 6, <em>le joueur · la joueuse</em> est <em>pestiféré · pestiférée</em></p></div><div id="600bc4a6-3a79-418d-b878-54f21d97bc21" style="width:62.5%" class="column"><p id="a48ee77c-0ec3-4252-b882-28db0a763f28" class="">Chaque jour, si <em>le joueur pestiféré · la joueuse pestiférée</em> n’a pas fait eu de traitement, <em>il · elle</em> doit faire un <strong>jet de stabilité</strong> équivalent au niveau de <em><strong>Peste</strong></em>. Si il y une valeur de 6, <em>le joueur · la joueuse</em> doit aussi augmenter son niveau de <em><strong>Peste</strong></em> de 1.</p><p id="9e77e2b7-be4c-4479-a95c-bb24d63b33a0" class="">Lorsque le niveau atteint 4, c’est la fin du <strong>personnage</strong>.</p></div></div></div></article></body></html>

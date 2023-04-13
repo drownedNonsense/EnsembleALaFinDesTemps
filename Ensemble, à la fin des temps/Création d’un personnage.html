@@ -1,0 +1,672 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Création d’un personnage</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7a4ce8e9-4614-4843-b6c7-303160f8719d" class="page serif"><header><h1 class="page-title">Création d’un personnage</h1></header><div class="page-body"><hr id="1f1b27c5-a2aa-4647-b2b9-b7ad0e07abf2"/><p id="486ebae3-067a-43a7-ac7e-c322f547efe8" class="">Pour générer un nouveau <strong>personnage</strong>, il faut tirer au hasard une <strong>carte figure</strong> qui définira l’archétype du <strong>personnage</strong>. On peut ensuite jeter deux d6 différenciables pour déterminer au hasard le nom de ce dernier.<div class="indented"><h2 id="0cd07097-d05c-443d-8591-35023901ad7f" class="">Table des noms</h2><hr id="6dba693e-a6fd-4919-b830-81c9af269160"/></div></p><div id="b4dee320-4293-4065-93b9-f527092b933f" class="column-list"><div id="0d69e443-8ff4-4432-887d-e63cb2a78ce8" style="width:3.125%" class="column"><p id="8734b830-ea6c-4acd-82f9-347da1bb3150" class="">
+</p></div><div id="cefb533d-12b4-4358-bbac-afd964e017ea" style="width:31.25%" class="column"><p id="0f3af37a-76d6-4887-83c9-caa7776ae72f" class="">1—1 <em>· </em><strong><em>Admir</em></strong></p><p id="c8d91720-ffe6-4c95-a076-9b3db7f54383" class="">1—2 <em>· </em><strong><em>Alban</em></strong></p><p id="bcf88806-4893-4e2f-a5bb-1e17dbbb10b8" class="">1—3 <em>· </em><strong><em>Aku</em></strong></p><p id="168dc292-8473-44be-a6de-69c156ea624c" class="">1—4 <em>· </em><strong><em>Aqden</em></strong></p><p id="377a8815-144d-4765-a48f-b0f1fb02a476" class="">1—5 <em>· </em><em><strong>Asbel</strong></em></p><p id="51487777-82ab-4782-b237-7161936a36bf" class="">1—6 <em>· </em><strong><em>Bësnik</em></strong></p></div><div id="ee1aa268-3ade-40d6-9f5d-f834553b0fe7" style="width:31.25%" class="column"><p id="a215bb96-7ad8-4ed1-a9a9-10d3b6650552" class="">2—1 <em>· </em><strong><em>Dorok</em></strong></p><p id="bd96e019-c2a2-4d71-8e2c-8d9e05ac5d83" class="">2—2 <em>· </em><strong><em>Ika</em></strong></p><p id="43183650-57f7-407d-91ee-3fc168c0bb31" class="">2—3 <em>· </em><strong><em>Izaäk</em></strong></p><p id="72bc7c1f-9a85-4e69-9120-39ec3df37106" class="">2—4 <em>· </em><strong><em>Ismet</em></strong></p><p id="33acc26f-cf1d-44f7-abf2-383175c6e73a" class="">2—5 <em>· </em><strong><em>Jihl</em></strong></p><p id="cbe318a8-55a2-4662-91dc-3ee5965594e0" class="">2—6 <em>· </em><strong><em>Kai</em></strong></p></div><div id="7d49855d-fdbd-4984-93d5-813be1af17bc" style="width:34.375%" class="column"><p id="a4f2f3f5-272f-418a-9454-2c75eba4c1eb" class="">3—1 <em>· </em><strong><em>Katz</em></strong></p><p id="84ada694-d03e-4170-a6d7-ed9087741cad" class="">3—2 <em>· </em><strong><em>Kaphka</em></strong></p><p id="a41f3f5f-6987-4579-8268-328a0289c3ad" class="">3—3 <em>· </em><strong><em>Kristaq</em></strong></p><p id="4a0e3f01-3537-418e-8c7a-036049f36ad2" class="">3—4 <em>· </em><strong><em>Lapyuta</em></strong></p><p id="aec1ebd4-cac6-4f39-a87a-fadbe3b1ead8" class="">3—5 <em>· </em><strong><em>Lastel</em></strong></p><p id="b31a574b-8085-42bd-ba44-6cad9a899c55" class="">3—6 <em>· </em><strong><em>Lule</em></strong></p></div></div><div id="b018d65d-0e83-4eb8-b999-878709f897b2" class="column-list"><div id="926fc10c-aec1-41b6-8681-15b64bab5dd7" style="width:3.125%" class="column"><p id="2d9b812d-81a8-4fe2-b8fd-c4b78f36e082" class="">
+</p></div><div id="ea93d91e-506c-4091-a2e4-1081bcd96fb1" style="width:31.25%" class="column"><p id="4789929e-54e6-4e48-aee5-174c6524f187" class="">4—1 <em>· </em><strong><em>Lulyetä</em></strong></p><p id="9b9821cc-2216-4064-b863-a0f8c6fb8e5e" class="">4—2 <em>· </em><strong><em>Mishina</em></strong></p><p id="fd49a70a-983b-4a34-91bf-c9e92a021c4d" class="">4—3 <em>· </em><strong><em>Mito</em></strong></p><p id="9f7e0d0d-5d06-4681-a7bc-46fe7fbb0ff6" class="">4—4 <em>· </em><strong><em>Mukden</em></strong></p><p id="16b16a7e-f619-4115-8210-a90e63adbfc2" class="">4—5 <em>· </em><strong><em>Nadezhka</em></strong></p><p id="e3698849-edd4-48dd-8c46-595f2ef5b3ca" class="">4—6 <em>· </em><strong><em>Naozikaä</em></strong></p></div><div id="8da6acbf-6472-4815-9b31-47f8687efec0" style="width:31.25%" class="column"><p id="e656ecf8-2779-491d-9bf1-1983ffe9c46d" class="">5—1 <em>· </em><strong><em>Ohma</em></strong></p><p id="eb6d9824-13aa-4c51-a0db-e2999c4154d2" class="">5—2 <em>· </em><strong><em>Pëll</em></strong></p><p id="49b98e28-dd98-4895-8b64-2497f3cbe61d" class="">5—3 <em>· </em><strong><em>Phyolla</em></strong></p><p id="dac90689-d855-4915-97e7-624c1b619cb1" class="">5—4 <em>· </em><strong><em>Pëtr</em></strong></p><p id="ee26b830-1de3-419a-8d5e-587babcaf760" class="">5—5 <em>· </em><strong><em>Selm</em></strong></p><p id="809301a6-783d-4967-b539-36a5e11ae303" class="">5—6 <em>· </em><strong><em>Shpresa</em></strong></p></div><div id="8617c750-6656-4da5-ae32-d78973010120" style="width:34.375%" class="column"><p id="1401b0c8-753a-4f3c-9e80-2aa5a3d9e563" class="">6—1 <em>· </em><strong><em>Shqipe</em></strong></p><p id="645a6d94-24e6-4b28-b2cb-374b476aacb3" class="">6—2 <em>· </em><strong><em>Tepa</em></strong></p><p id="228d38cd-720b-41de-bb71-0775656e54e7" class="">6—3 <em>· </em><strong><em>Teto</em></strong></p><p id="d8a124d5-5530-45b1-8185-d30ac60f9ea9" class="">6—4 <em>· </em><strong><em>Yak</em></strong></p><p id="5150aaa5-32ba-4726-a25d-ce90ff47767c" class="">6—5 <em>· </em><strong><em>Yihl</em></strong></p><p id="86cfc502-198a-4bf7-9ca2-de79065ec079" class="">6—6 <em>· </em><strong><em>Yupa</em></strong></p></div></div><div id="d873ca12-46d6-438c-83e5-37a9538c77f9" class="column-list"><div id="b5f68945-7eab-454e-9a97-319a9d6673f2" style="width:50%" class="column"><p id="5aafa15a-6c36-4df8-af80-4940908d60eb" class=""><em>Le joueur · la joueuse</em> peut placer jusqu’à trois liens envers les autres <strong>personnages</strong> entre <em><strong>Soutien</strong></em> et <em><strong>Attache</strong></em>, lesquels peuvent se cummuler.</p></div><div id="38c91fe5-bba2-4caf-a92f-5147cbf0f8fe" style="width:50%" class="column"><blockquote id="4b0c0d53-2fa3-4db8-86cf-d8ae4dee0a88" class=""><em>Ika place un niveau de </em><strong>Soutien </strong><em>et d’</em><strong>Attache</strong> <em>envers Kristaq et un niveau de </em><strong>Soutien </strong><em>envers Yupa.</em></blockquote></div></div><div id="e8ff3f4e-f95f-416c-9583-281ca3f9387b" class="column-list"><div id="3a58c4c5-f261-4464-945c-cfa1a6eef710" style="width:43.75%" class="column"><p id="0510c976-310c-4b54-99e0-d72db3f6322d" class="">On peut ensuite jeter un dé et diviser la valeur à l’inférieur par deux ou simplement choisir une valeur entre 0 et 3. Le résultat indique l’indice du vécu du <strong>personnage</strong>.</p><p id="a619f41a-277d-4083-aa12-f44fe0896168" class=""><em>Le joueur · la joueuse</em> doit enfin répartir cet indice dans en <em><strong>Deuil</strong></em>, <em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong>Noirceur</strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em> et <em><strong>Mal</strong></em>.</p></div><div id="f1811a33-e098-4e07-b6c7-fb23cb024ed1" style="width:56.25%" class="column"><blockquote id="0da69ee9-1dc5-4a75-b92a-37f401d88df4" class=""><em>Ika obtient un 5 à son jet, soit un indice de vécu de 2. Il place 1 niveau en </em><strong>Deuil</strong><strong><em> </em></strong><em>et en </em><strong>Mal</strong><em>, ce qui lui permet de diminuer 3 fois le </em><strong><em>seuil de réussite</em></strong><em> d’une compétence. Il diminue son seuil de </em><strong>Premiers soins</strong><em> de 2 et celui de </em><strong>Pharmacologie</strong><strong><em> </em></strong><em>de 1. N’ayant aucun niveau initial supérieur à 1, il ne fait qu’un jet pour ses affaires. Il obtient 6, soit un briquet.</em></blockquote></div></div><p id="dc9336c9-8e13-4bfa-aaaa-c67a66827b69" class="">Pour un niveau initial en <em><strong>Deuil</strong></em>, <em>le joueur </em>·<em> la joueuse</em> peut diminuer deux fois le <strong>seuil de réussite</strong> d’une <strong>compétence </strong>ou une fois par niveau initial en <em><strong>Noirceur</strong></em> ou <strong><em>Mal</em></strong>.</p><p id="77d56607-9ac6-490d-994d-8a687575a6b6" class="">Le <strong>personnage</strong> qui a plus d’un niveau initial en <em><strong>Deuil</strong></em>, <em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong>Noirceur </strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em>ou <em><strong>Mal</strong></em> peut lancer deux fois 2d6 ou une fois 2d6 dans le cas contraire et se référer à la somme pour connaître les affaires que le <strong>personnage</strong> possède ou serait susceptible de posséder.</p><h2 id="911f7a77-7b89-4c59-9cad-e4be2c048585" class="">Affaires personnelles</h2><hr id="92f90020-919c-4f3f-ac33-d8d7c9c0a9cc"/><div id="b54f524e-67f7-499a-9e8c-7a4bb17c9878" class="column-list"><div id="3da5f7fe-5296-44d9-b7d1-bd110b112e85" style="width:6.25%" class="column"><p id="edab6214-9472-4076-847c-58209411ceaf" class="">
+</p></div><div id="a093beae-3557-4474-a4b5-fcab8382aa8e" style="width:93.75%" class="column"><p id="420cb3ce-9522-4d8c-8b00-12f24bfafd48" class="">02 <em>· </em><strong><em>Pistolet</em></strong><mark class="highlight-gray"><em> </em></mark><mark class="highlight-gray">×1 +</mark> <em><strong>cartouchière</strong></em><mark class="highlight-gray"><em> pour balles simples</em></mark></p><p id="22424322-a796-4138-a065-7f12358992df" class="">03 <em>· </em><strong><em>Masque filtrant</em></strong><mark class="highlight-gray"><em> </em></mark><mark class="highlight-gray">×1 + </mark><em><strong>étui</strong></em><mark class="highlight-gray"><em> pour filtres à charbon</em></mark></p><p id="5cad677b-4011-4e90-a9fa-17bffb9a4d78" class="">04 <em>· </em><strong><em>Flasque d’alcool</em></strong></p><p id="f5d0ba68-63b2-46f5-a843-90227c90f912" class="">05 <em>· </em><strong><em>Lampe</em></strong><mark class="highlight-gray"><em> </em></mark><mark class="highlight-gray">×1</mark></p><p id="f24b03bc-d6ae-4ba5-88ae-30c5317a60ac" class="">06 <em>· </em><strong><em>Briquet</em></strong><mark class="highlight-gray"><em> </em></mark><mark class="highlight-gray">×1 </mark></p><p id="6b629609-7c35-41a3-95cf-7d12982fae5c" class="">07 <em>·</em><em><strong> Couteau</strong></em><mark class="highlight-gray"><em> </em></mark><mark class="highlight-gray">×1 </mark></p><p id="6fa13d80-82fd-48e4-a425-ed3b73ea44b7" class="">08 <em>· </em><strong><em>Longue vue</em></strong><mark class="highlight-gray"><em> </em></mark><mark class="highlight-gray">×1 </mark></p><p id="77f2dff4-3b63-4123-8375-8919267de7bd" class="">09 <em>· </em><strong><em>Tabac</em></strong></p><p id="0c2b915d-f5a8-4edd-a565-715c09e28c58" class="">10 <em>· </em><strong><em>Médicaments</em></strong></p><p id="34a77785-9202-486f-b290-7512bb448696" class="">11 <em>· </em><strong><em>Cartouchière </em></strong><em><mark class="highlight-gray">pour balles sifflantes</mark></em></p><p id="5119201d-c700-46ab-972c-52ead6d95282" class="">12 <em>· </em><strong><em>Flûte à vers</em></strong><mark class="highlight-gray"><em> </em></mark><mark class="highlight-gray">×1</mark></p></div></div><p id="1bec0aa3-965a-4868-9d0d-fb1e3a736c1b" class="">Finalement, <em>le joueur · la joueuse</em> doit décider d’un <strong>objet d’attache :</strong> un objet important au <strong>personnage</strong> lequel permettra à ses camarades de se souvenir de lui après qu’il s’en est allé.<em><em><em> </em></em></em><div class="indented"><p id="a4fde166-c7a6-49c3-b68b-22a15a8d9dc2" class="">La création du <strong>personnage</strong> est maintenant terminée.</p></div></p><hr id="30c8bc08-1e00-4685-afdc-76b6c41e4072"/></div></article></body></html>

@@ -1,0 +1,724 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Equipements</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fa1f0e87-0a2a-41ad-b323-9f516680102e" class="page serif"><header><h1 class="page-title">Equipements</h1></header><div class="page-body"><h1 id="0e08038c-0b86-4791-8602-46acdfa3c7b7" class="">Equipements passifs</h1><div id="6624b556-57e9-4ffa-86ff-dcc6f48fc0fa" class="column-list"><div id="b39e70a5-3431-483f-bdf0-d89cb8a8fdbb" style="width:4.166666666666666%" class="column"><p id="1eb007f0-c301-4147-952a-3e69c82c649f" class="">
+</p></div><div id="db5d25f8-9dc1-4292-a870-e4063ffbf264" style="width:45.83333333333333%" class="column"><h2 id="ea1176fd-93fb-4a7c-87f3-2471e62bca77" class=""><em>Paquetage </em><mark class="highlight-gray">IV</mark></h2><blockquote id="76c0c73e-c5b1-4664-960f-a37d86f835da" class="">+2 à la limite de <strong><em>Ravitaillement</em></strong> du <strong>personnage</strong>.<strong><em>
+</em></strong>Limite le déplacement à ½ <strong>Lieue pédestre</strong>.<hr id="718f3fb3-a271-4061-8e71-8e35f7f1bca9"/></blockquote><h2 id="b259f18e-275e-4a56-8d04-3cd567e94c84" class=""><em>Cuirasse </em><mark class="highlight-gray">IV</mark></h2><blockquote id="8ec8c1f3-0d74-49d1-9e20-36ac7b6402bd" class="">−1 <strong><strong><strong><strong><strong><strong><strong>attaque</strong></strong></strong></strong></strong></strong></strong> subie.
+−1 au seuil de <em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong>Préservation</strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em>.<hr id="612be2e5-e9d8-4168-97c2-88c9546e2ac2"/></blockquote><h2 id="02f834b1-ff52-458d-b7ef-02f732046139" class=""><em>Casque </em><mark class="highlight-gray">III</mark></h2><blockquote id="b2ee004d-9cdc-4fe2-a3fc-3299fbf7a4dd" class="">−1 au seuil de <em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong>Préservation</strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em>.<em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong><em><strong>
+</strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em></strong></em>+1 au seuil des <em>armes de tir légères</em>.<hr id="b4e6bebc-ee37-4d43-a8e1-0896c15aa13c"/></blockquote><h2 id="54ed879b-d3bb-4802-b201-9c4464e42e81" class=""><em>Attelage </em><mark class="highlight-gray">VIII</mark></h2><blockquote id="891b56fd-3d81-4f1d-b3c2-bfce15dfe1f2" class="">+4 à la limite de <strong><em>Ravitaillement</em></strong> de la <strong>compagnie</strong>.
+Limite de déplacement à 1 <strong>Lieue pédestre</strong>.
+Nécessite d’avoir une <strong>ligne de ravitaillement</strong>.<hr id="560e5e98-653d-41e9-87bb-544302b3cc99"/></blockquote><h2 id="dc8929bb-44c7-4032-abc0-0180cead7af8" class=""><em>Cheval </em><mark class="highlight-gray">VII</mark></h2><blockquote id="55d576d5-0de8-4c15-9ac3-e40f0c3c812b" class="">−1 au seuil des <em>armes de contact</em>.
+Limite le déplacement à 1 <strong>Lieue cavalière</strong>.
+Empêche l’utilisation de <em><strong>Préservation</strong></em>.<hr id="09668a38-d832-4bd5-8564-26d25df1b63e"/></blockquote></div><div id="8b861038-a44e-4500-9853-a5595deab0b3" style="width:50.000000000000014%" class="column"><h2 id="4b334c8d-9a2c-46c8-a05f-4cecdd1726be" class=""><em>Masque filtrant</em> <mark class="highlight-gray">IV</mark></h2><blockquote id="0c404af4-e233-459e-bba8-93f1f7d2dea6" class="">−1 carte connue.
+−1 <em>filtre à charbon</em> par scène.
+Empêche les <strong>jet de toxines</strong>.<hr id="cd52b7ba-30f9-449c-a8fb-6e980d33dba1"/></blockquote><h2 id="2c551b17-359a-424e-8946-bd3f59e10c94" class=""><em>Lampe </em><mark class="highlight-gray">VI</mark></h2><blockquote id="d9a5e53c-6b3a-4bca-a712-15ed695946b0" class="">+2 <em><strong>Lumière</strong></em>.<hr id="e04deccf-b5e3-469a-99d4-175a51e95954"/></blockquote><h2 id="441826dc-18b2-42fd-84d2-9e48fabd2194" class=""><em>Lanterne</em> <mark class="highlight-gray">IV</mark></h2><blockquote id="36a4687a-34dc-4f84-80f2-16cc6b880aef" class="">+1 <em><strong>Lumière</strong></em>.
+−1 <em>bougie</em> par scène.<hr id="c962a361-bc18-4f29-b553-19a40c2e7937"/></blockquote><p id="114d4d21-3a6f-46d3-a3ee-a86a215f3b89" class="">
+</p></div></div><h1 id="d6440528-0d7e-418b-b20a-2a713c3c3cb1" class="">Armes de tir légères</h1><hr id="efdcec73-aaab-49aa-944f-f0af0d9d5812"/><div id="ea0f5207-c92d-4d05-b4c2-6b0f43655792" class="column-list"><div id="4fe09fa8-b10a-4489-80ce-6e8880ee1ff9" style="width:4.166666666666666%" class="column"><p id="8de8c04e-0a9d-455b-bcbf-17c1aadb8a20" class="">
+</p></div><div id="36e5c731-62ba-4bc7-87a9-427a9a480611" style="width:45.83333333333333%" class="column"><h2 id="e19a9ca5-e65f-4cbf-955f-74a9eea50066" class="">07♥️<mark class="highlight-gray">(×2)</mark><strong> · </strong><em>Pistolet </em><mark class="highlight-gray">III</mark></h2><blockquote id="f3a5e346-ad1a-44d2-8b0a-27156ac09e9d" class=""><strong>· </strong>⅙ <strong>Lieue pédestre</strong>
+<strong>· </strong>½ <strong>Lieue pédestre</strong><p id="24bb47b2-0e4a-48a0-bced-c9e4507c1e31" class="">Utilise des <em>balles simples</em>.</p><hr id="1edea767-df49-43d1-9940-376d9ae0dcee"/></blockquote><h2 id="86ba31b3-be3e-43aa-98a5-dc5c3948be5b" class="">06♥️<mark class="highlight-gray">(×1)</mark> <strong>· </strong><em>Fusil </em><mark class="highlight-gray">IV</mark></h2><blockquote id="6b71ee4e-c528-4dcc-8c23-cc0c81087d4c" class=""><strong>· </strong>⅙ <strong>Lieue pédestre</strong>
+<strong>· </strong>½ <strong>Lieue pédestre</strong>
+<strong>· </strong>1 <strong>Lieue pédestre</strong><p id="597a3662-2d3d-49df-a18b-01a69abfedd9" class="">Utilise des <em>balles simples</em> et <em>-sifflantes</em>.</p><hr id="016a1682-797c-4409-aa51-1143f8bbbe0d"/></blockquote></div><div id="c99e2796-9eb8-46f8-b866-c7cb4292241a" style="width:50.00000000000004%" class="column"><h2 id="56657ec6-41b1-44c7-ad95-4121196291a5" class="">07♦️<mark class="highlight-gray">(×1)</mark><strong> ·</strong><em><strong> </strong></em><em>Mortier à main</em> <mark class="highlight-gray">III</mark></h2><blockquote id="57972eb8-ba7d-4181-a4bd-501a2295d303" class=""><strong>· </strong>⅙ <strong>Lieue pédestre</strong>
+<strong>· </strong>½ <strong>Lieue pédestre</strong><p id="3fb83611-09c5-40fa-80eb-f7be8d17aa46" class="">Utilise des <em>grenades </em>ou des <em>fusées</em>.</p><hr id="7b8d6556-c90c-4cdc-a8a5-0ddae41c8052"/></blockquote><h2 id="3cad7338-0fdd-4cb4-848e-8a8c0eb359ac" class="">06♣️<mark class="highlight-gray">(×1)</mark><strong> · </strong><em>Canon à main</em> <mark class="highlight-gray">III</mark></h2><blockquote id="3cbb927b-6eb1-48de-95eb-707d418951f8" class=""><strong>· </strong>⅙ <strong>Lieue pédestre</strong>
+<strong>· </strong>½ <strong>Lieue pédestre</strong><p id="5bc747a7-756d-4371-bc46-11a30636ee42" class="">Utilise des <em>charges</em>.
+Nécessite un support pour être utilisé.</p><hr id="1ac398ea-43ff-4b62-97d0-e2095ab30c1d"/></blockquote></div></div><h1 id="843f60fa-c3bf-4391-b2d6-73f6808c9247" class="">Armes de tir lourdes</h1><div id="bee06e37-10d2-4060-88c8-a544a019515d" class="column-list"><div id="78c8ab3f-cf7c-4580-a68b-971109aa332f" style="width:4.166666666666666%" class="column"><p id="f7673147-ad11-43df-928d-9192a1c1924f" class="">
+</p></div><div id="233f7997-02bd-4f8f-994b-58373b6988f6" style="width:45.83333333333333%" class="column"><h2 id="78691f0d-02a1-439f-aceb-72dd083089eb" class="">08♣️<mark class="highlight-gray">(×1)</mark><strong> · </strong><em>Canon</em><em><mark class="highlight-gray"> </mark></em><mark class="highlight-gray">X</mark></h2><blockquote id="536f470e-033a-4e8e-a83d-006ec7423c93" class=""><strong>· </strong>1 <strong>Lieue cavalière</strong>
+<strong>· </strong>1¾ <strong>Lieue cavalière</strong>
+<strong>· </strong>2 <strong>Lieue cavalière</strong><p id="22cfd979-1132-4b72-be66-af1814234516" class="">Utilise des <em>obus simples</em> et <em>-à mitraille</em>.
+Nécessite d’avoir une <strong>ligne de ravitaillement</strong>.
+Nécessite d’avoir un <em>attelage </em>pour être déplacée.</p><hr id="fc7f0ca3-2a8f-4681-a6e2-4d2170cc8963"/></blockquote><h2 id="a0e69220-3d32-43d1-afb5-907d28310602" class="">09♣️<mark class="highlight-gray">(×1)</mark><strong> · </strong><em>Obusier</em><em><mark class="highlight-gray"> </mark></em><mark class="highlight-gray">X</mark></h2><blockquote id="5469a401-8ce6-4a35-9e9b-9628aa01118e" class=""><strong>· </strong>1 <strong>Lieue cavalière</strong>
+<strong>· </strong>1¾ <strong>Lieue cavalière</strong><p id="a3a1e14c-43cc-43d3-9618-21491d295252" class="">Utilise des <em>obus simples</em>, <em>-à mitraille</em> et <em>-hautement explosifs</em>.
+Nécessite d’avoir une <strong>ligne de ravitaillement</strong>.
+Nécessite d’avoir un <em>attelage </em>pour être déplacée.</p><hr id="7aee5b33-ef25-440b-b615-3a89ea662eaa"/></blockquote></div><div id="486c7b18-dc5b-46a9-ad49-f0c85fdd1fd7" style="width:49.999999999999986%" class="column"><h2 id="8ab7c1e3-9ae5-4f69-a313-183055d0f7b8" class="">06♦️<mark class="highlight-gray">(×4)</mark><strong> · </strong><em>Mitrailleuse</em><em><mark class="highlight-gray"> </mark></em><mark class="highlight-gray">X</mark></h2><blockquote id="a13693ec-1248-49a8-9328-4166afd84aa3" class=""><strong>· </strong>⅙ <strong>Lieue pédestre</strong>
+<strong>· </strong>½ <strong>Lieue pédestre</strong>
+<strong>· </strong>1 <strong>Lieue pédestre</strong><p id="c41e315b-ffc9-49b3-a4b1-e7024142a1b6" class="">Utilise des <em>balles simples</em>.
+Nécessite d’avoir une <strong>ligne de ravitaillement</strong>.
+Nécessite d’avoir un <em>attelage </em>pour être déplacée.</p><hr id="21cc20e1-6fe1-4837-9adb-575645688113"/></blockquote><p id="d4663a43-b3cd-4cb9-bb3a-c5d94b1c60c4" class="">
+</p></div></div><h1 id="75bf6c76-ebbf-4e35-8016-29a274e53bd0" class="">Ravitaillement</h1><div id="9ca2ff4a-6e2b-4228-8299-7136597d3f26" class="column-list"><div id="84afda36-1051-4315-a91a-272e38376867" style="width:4.166666666666666%" class="column"><p id="a6d928f7-8ed0-4022-b5e8-f61dcff3b1e9" class="">
+</p></div><div id="8abf7ce3-7010-47ae-b0c8-7c398bed0f1e" style="width:45.83333333333333%" class="column"><h2 id="dc19bb46-ff69-400f-992b-39c49efef52a" class=""><em>Cartouchière pour balles simples</em> <mark class="highlight-gray">I</mark></h2><blockquote id="1e4113f4-8813-4b23-bf50-3f05ba0d9c4d" class="">−1 <em><strong>Ravitaillement</strong></em> par échec.
++2 <strong><strong>attaque</strong></strong> létale.<hr id="727a7a35-5a7c-4e3c-88ef-643329ae9923"/></blockquote><h2 id="3094e073-5fe1-49f9-ae26-319d2760047c" class=""><em>Cartouchière pour balles sifflantes </em><mark class="highlight-gray">III</mark></h2><blockquote id="cceadcd2-d54c-41d3-b5f3-6a17bbff0658" class="">−1 <em><strong>Ravitaillement</strong></em> par utilisation.
++1 <strong><strong>attaque</strong></strong> létale.
+Perturbe les sens des vers.<hr id="58873718-d73b-4e30-b73e-2306774f21bc"/></blockquote><h2 id="40b04bfc-aa61-4440-a23b-68a63d0648e9" class=""><em>Bandoulière de charges explosives </em><mark class="highlight-gray">II</mark></h2><blockquote id="46d76add-9820-4f5a-9476-b88cd7198e64" class="">−1 <em><strong>Ravitaillement</strong></em> par utilisation.
++3 <strong><strong>attaque</strong></strong> létale.<hr id="f33254a2-595b-4863-9d9c-904a68c6a23c"/></blockquote><h2 id="304557d6-ac24-4163-a5b9-6672648b6e24" class=""><em>Bandoulière de fusées </em><mark class="highlight-gray">II</mark></h2><blockquote id="e60c45bc-acdc-4f41-9fa8-d6a034b4990a" class="">−1 <em><strong>Ravitaillement</strong></em> par utilisation.
+Permet d’utiliser la capacité <em><strong>Signal</strong></em>.<hr id="91188b90-1045-40df-8010-8ccb8048cda7"/></blockquote><h2 id="b746f2ac-4958-4f9e-9a73-8ea1d952bfd7" class=""><em>Ceinture de grenades </em><mark class="highlight-gray">III</mark></h2><blockquote id="8f2af708-0625-4478-8d36-74fd4a72a90b" class="">−1 <em><strong>Ravitaillement</strong></em> par utilisation.
++4 <strong><strong>attaque</strong></strong> létale.
+La cible ne peut pas utiliser <em><strong>Préservation</strong></em>.<hr id="3f7506f8-9414-4f08-98be-cf208698981c"/></blockquote><h2 id="dbfff146-40ef-4450-b9e6-f80dc48958cd" class=""><em>Etui pour filtres à charbon </em><mark class="highlight-gray">II</mark></h2><blockquote id="dc7b56d6-0892-4359-acfc-b0648aca3425" class="">−1 <em><strong>Ravitaillement</strong></em> par scène.<hr id="a3cec7b4-4787-43a2-a4f2-eb1b0a087fda"/></blockquote></div><div id="72f41eda-918c-4c2b-a482-cd5c33eb62e5" style="width:49.99999999999999%" class="column"><h2 id="99e796b0-5d7a-40c6-8cb2-ab1f7581a4dd" class=""><em>Obus simple </em><mark class="highlight-gray">III</mark></h2><blockquote id="f7bd6a88-e182-41ea-a462-43c6a245d4d2" class="">−1 <em><strong>Ravitaillement</strong></em> par échec.
++6 <strong><strong>attaque</strong></strong> létale.
+Nécessite d’avoir un attelage pour être disponible.
+La cible ne peut pas utiliser <em><strong>Préservation</strong></em>.<hr id="870cbff1-0715-43f7-ac88-f14a08e76ee7"/></blockquote><h2 id="f46b3ce8-61f5-4d2b-93b7-c56a86e3620d" class=""><em>Obus à mitraille </em><mark class="highlight-gray">III</mark></h2><blockquote id="e5494ac7-25e6-4ca5-9759-3758b8dad9a9" class="">−1 <em><strong>Ravitaillement</strong></em> par échec.
++5 <strong><strong>attaque</strong></strong> létale.
+Nécessite d’avoir un attelage pour être disponible.<hr id="ed9750f1-3df0-40d9-a4f8-4b327582b41b"/></blockquote><h2 id="7c44955d-998f-4f70-982a-3b4e486679bb" class=""><em>Obus hautement explosif </em><mark class="highlight-gray">III</mark></h2><blockquote id="341c6061-63fd-42eb-a828-c28374bfb8d4" class="">−1 <em><strong>Ravitaillement</strong></em> par échec.
++8 <strong><strong>attaque</strong></strong> létale.
+Nécessite d’avoir un attelage pour être disponible.
+La cible ne peut pas utiliser <em><strong>Préservation</strong></em>.<hr id="ef29ee9c-9ce8-4314-b9c3-35451393166d"/></blockquote><p id="b37a22f7-ca81-41bb-8932-1ffd5ea9a396" class="">
+</p></div></div><h1 id="1932115c-7d6a-4458-becf-3380f98bfe90" class="">Armes de contact</h1><div id="75e819fd-eb86-4075-82b9-0ea6034394aa" class="column-list"><div id="04754f8a-fd54-4a0b-8e25-d8b98e04f442" style="width:4.166666666666666%" class="column"><p id="1213ffe5-49b5-4fa3-b435-1ea82fa8ecfb" class="">
+</p></div><div id="aad9b468-c0e4-4273-8e3b-844d5a6839f9" style="width:45.83333333333333%" class="column"><h2 id="274c17e1-8c39-4ec0-a199-47090b329c4b" class="">08◾<mark class="highlight-gray">(×1)</mark><strong> · </strong><em>Baïonnette </em><mark class="highlight-gray">III</mark></h2><blockquote id="3793c273-96e7-4f33-b308-3c9e73fc4330" class="">+2 <strong><strong>attaque</strong></strong> létale.<hr id="13f43249-b6af-418b-bb60-512ca8e64715"/></blockquote><h2 id="c282e321-2d6e-4a2b-9e2a-a9e29baab64e" class="">06♥️<mark class="highlight-gray">(×2)</mark><strong> · </strong><em>Sabre </em><mark class="highlight-gray">IV</mark></h2><blockquote id="85b0d0ad-5035-4073-bb78-c34e1f6e30a9" class="">+2 <strong><strong>attaque</strong></strong> létale.
++1 au seuil d’<strong>opposition</strong>.<hr id="f24249f2-eb07-4c2d-b639-561b0d5abfd7"/></blockquote><h2 id="ab1ec7c1-bbb6-4d6d-8bdb-7c330bf38775" class="">06♦️<mark class="highlight-gray">(×1)</mark><strong> · </strong><em>Lance </em><mark class="highlight-gray">IV</mark></h2><blockquote id="332e64cb-8399-4977-8cf5-3b189d8bf0d9" class="">+2 <strong><strong>attaque</strong></strong> létale.
++2 au seuil d’<strong>opposition</strong>.<hr id="e3fbf142-4409-4c44-814c-63be10577f1c"/></blockquote></div><div id="1546f3a7-cc87-449e-a4ea-08222e64d6fa" style="width:50.000000000000014%" class="column"><h2 id="a893f44d-2185-4d08-aa6f-d7bd49ed3d12" class="">08◾<mark class="highlight-gray">(×2)</mark><strong> · </strong><em>Couteau </em><mark class="highlight-gray">II</mark></h2><blockquote id="75a9b1bf-eece-499c-99e7-6f6c3e2bc5df" class="">+1 <strong><strong>attaque</strong></strong> létale.<hr id="8eade794-c0b2-4fe1-8e63-d027cccaf969"/></blockquote><h2 id="b52cbeac-82f7-4db4-8e2d-a0f6774cd521" class="">06♣️<mark class="highlight-gray">(×1)</mark><strong> · </strong><em>Pelle </em><mark class="highlight-gray">III</mark></h2><blockquote id="dc4f1683-2e68-42d3-aafc-f83dd85344aa" class="">+1 <strong><strong>attaque</strong></strong>.
++1 au seuil d’<strong>opposition</strong>.<hr id="8c76c2e6-2971-4c8f-9462-ad223faf0743"/></blockquote><h2 id="2a6c33aa-fef2-43da-8d5c-7524f43c93bd" class="">08♣️<mark class="highlight-gray">(×1)</mark><strong> · </strong><em>Hache </em><mark class="highlight-gray">III</mark></h2><blockquote id="2d21fcc0-1d96-430a-bcfb-7859ab6f6c6f" class="">+1 <strong><strong>attaque</strong></strong> létale.
++2 au seuil d’<strong>opposition</strong>.<hr id="d242329a-9d4b-483a-8156-15dafe11df20"/></blockquote><p id="391d7e77-3a4e-4abd-bd11-97f8349de43d" class="">
+</p></div></div></div></article></body></html>
